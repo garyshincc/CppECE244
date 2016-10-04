@@ -15,5 +15,19 @@ int main()
 
 	cout << a[0] << endl;
 	cout << *a[0] << endl;
+	int *p = new int;
+	*p = 100;
+	cout << p << endl;
+	cout << *p << endl;
+
+	delete p;
+	p = NULL;
+
+
+	int *q;
+	int y = 10;
+	q = &y;
+	cout << *q << endl;
+
 	return 0;
 }
