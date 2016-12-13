@@ -4,22 +4,36 @@ using namespace std;
 
 class A{
 	public:
-		A(int i) {cout << "A ctor with param" << endl;}
 		A() {cout << "A ctor" << endl;}
 		~A() {cout << "A dtor" << endl;}
+
+		virtual void foo(){cout << "A foo()" << endl;}
+
+		A& operator= (const A& rhs){cout << "A op=" << endl;}
+
 };
 
 class B : public A{
 	public:
 		B() {cout << "B ctor" << endl;}
-		~B() {cout << "B dtor" << endl;
-			delete myInstanceOfA;}
+		~B() {cout << "B dtor" << endl;}
+		virtual void foo(){cout << "B foo()" << endl;}
+		//B& operator=(const B& rhs) {cout << "B op=" << endl;}
 	protected:
-		A *myInstanceOfA = new A(1234);
+		A myInstanceOfA;
 };
+
+A foo(A & input){
+	input.foo();
+	return input;
+}
 
 int main(){
 	B myB;
-	return 0;
+	B myOtherB;
+	A myA;
 
+	myOtherB = myB;
+	return 0;
+	
 }
