@@ -20,7 +20,7 @@ class B : public A{
 		virtual void foo(){cout << "B foo()" << endl;}
 		//B& operator=(const B& rhs) {cout << "B op=" << endl;}
 	protected:
-		A myInstanceOfA;
+		A myInstanceOfA; // dont forget!
 };
 
 A foo(A & input){
